@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COLLAB Remote</title><link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header><div class="logo">COLLAB<span>•</span></div><div id="connection">● آماده</div></header>
+<main>
+<section id="lobby" class="panel lobby">
+<div class="orb">⌁</div>
+<h1>اتاق همکاری از راه دور</h1>
+<p>اتاق بساز و کد آن را برای رفیقت بفرست.</p>
+<label>نام شما</label><input id="name" placeholder="نام شما" maxlength="40">
+<label>کد اتاق</label>
+<div class="roomline"><input id="room" placeholder="مثلاً DEV2026" maxlength="12"><button type="button" id="random">ساخت کد</button></div>
+<div class="twocol"><button type="button" id="create">ساخت اتاق</button><button type="button" id="join" class="ghost">ورود به اتاق</button></div>
+<div id="error" class="error"></div>
+<small>ساخت اتاق بدون نیاز به اینترنت هم باید صفحه اتاق را باز کند.</small>
+</section>
+
+<section id="workspace" class="hidden">
+<div class="topbar panel">
+<div><small>ROOM</small><b id="roomTitle">—</b></div>
+<button type="button" id="copy" class="ghost">📋 کپی کد</button>
+<div class="controls"><button type="button" id="mic">🎙️ میکروفون</button><button type="button" id="screen">🖥️ اشتراک صفحه</button><button type="button" id="leave" class="danger">خروج</button></div>
+</div>
+<div class="grid">
+<section class="panel videoarea">
+<div class="head"><span>🖥️ نمایشگرها</span><span id="peerState">منتظر رفیقت...</span></div>
+<div class="videos">
+<div class="videoBox"><span class="tag">شما</span><video id="local" autoplay muted playsinline></video><div id="localEmpty">اشتراک صفحه را فعال کن</div></div>
+<div class="videoBox"><span class="tag">رفیقت</span><video id="remote" autoplay playsinline></video><div id="remoteEmpty">منتظر اتصال رفیقت...</div></div>
+</div>
+</section>
+<aside class="panel chat"><div class="head">💬 گفت‌وگو</div><div id="messages" class="messages"><div class="system">اتاق آماده است. کد را برای رفیقت بفرست.</div></div>
+<form id="chatForm"><input id="message" placeholder="پیام بنویس..." maxlength="1000"><button>➤</button></form></aside>
+</div>
+</section>
+</main>
+<script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+<script src="/static/app.js"></script>
+</body></html>
