@@ -41,4 +41,12 @@ def handle_leave(data):
 if __name__=="__main__":
     print("COLLAB FIXED SERVER")
     print("Open: http://127.0.0.1:5000")
-    socketio.run(app, host="0.0.0.0", port=5000, debug=False)
+    import os 
+
+socketio.run(
+    app,
+    host="0.0.0.0",
+    port=int(os.environ.get("PORT", 10000)),
+    debug=Flase,
+    allow_unsafe_werkzeug=True
+)
